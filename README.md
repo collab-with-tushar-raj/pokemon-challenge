@@ -1,3 +1,14 @@
+# Environment File Setup
+
+Please create an envrionment file `.env` at the root directory level. 
+
+The content of the file should be below:
+`DATABASE_URL="file:./dev.db"`
+
+This is required by Prisma.
+
+PS - As part of this challenge, I have committed the `.env` file. We should not committ `.env` file but for viewing the application properly, I committed it.
+
 # Switchshop Pokémon full-stack challenge
 
 Welcome to the Switchshop Pokémon full-stack challenge!
