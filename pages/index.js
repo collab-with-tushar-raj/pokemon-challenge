@@ -9,6 +9,7 @@ export default function Home() {
   const [pokemonData, setPokemonData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [sortBy, setSortBy] = useState('');
 
   useEffect(() => {
     if (searchTerm === '') {
@@ -49,6 +50,10 @@ export default function Home() {
     handleApiResponse(`${baseUrl}/${searchTerm}`);
   }
 
+  const sortStat = async (sortOrder) => {
+    handleApiResponse(`${baseUrl}/sort?sortBy=${sortBy}&sortOrder=${sortOrder}`);
+  }
+
   return (
     <div className='container'>
       <h1 className='text-center'>Pokemon List</h1>
@@ -62,6 +67,26 @@ export default function Home() {
               className='form-control'
               onChange={debouncedResults} />
           </div>
+          <div className='d-flex flex-column ms-4'>
+            <label><b>Filter</b></label>
+            <select className='form-control' onChange={(e) => setSortBy(e.target.value)}>
+              <option value=''>Choose Stat</option>
+              <option value='Attack'>Attack</option>
+              <option value='Defense'>Defense</option>
+              <option value='HP'>HP</option>
+              <option value='Speed'>Speed</option>
+              <option value='Special Attack'>Special Attack</option>
+              <option value='Special Defense'>Special Defense</option>
+              <option value='Defense'>Defense</option>
+            </select>
+          </div>
+        </div>
+        <div className='d-flex flex-column ms-auto'>
+          <label><b>Sort By</b></label>
+          <select className='form-control' onChange={(e) => sortStat(e.target.value)}>
+            <option value='asc'>Ascending</option>
+            <option value='desc'>Descending</option>
+          </select>
         </div>
       </div>
       {isLoading && <div className="d-flex justify-content-center mt-5">
