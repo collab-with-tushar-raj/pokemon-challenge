@@ -12,13 +12,20 @@ datasource db {
 
 model Pokemon {
   id    Int     @id @default(autoincrement())
-  pokemonId Int
+  pokemonId Int @unique
   name String
-  types  String
+  types  Types[]
   attack Int
   defense Int
   hp Int
   speed Int
   specialAttack Int 
   specialDefense Int
+}
+
+model Types {
+  id Int @id @default(autoincrement())
+  name String
+  pokemon   Pokemon @relation(fields: [pokemonId], references: [id])
+  pokemonId Int
 }
