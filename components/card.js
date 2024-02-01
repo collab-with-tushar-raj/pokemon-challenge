@@ -9,7 +9,7 @@ export const Card = ({ id, name, types, attack, defense, hp, speed, specialAttac
                 <div className="d-flex p-3">
                     <img src={`/sprites/${id}.svg`} alt={`${name}`} width={200} height={200} />
                     <div className="d-flex flex-column px-4">
-                        <p><b>Types: </b><span>{types}</span></p>
+                        <p><b>Types: </b><span>{types.join(', ')}</span></p>
                         <p><b>Attack: </b><span>{attack}</span></p>
                         <p><b>Defensive: </b><span>{defense}</span></p>
                         <p><b>HP: </b><span>{hp}</span></p>
