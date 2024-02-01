@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 
         const result = await prisma.pokemon.findMany({
             orderBy: {
-                [sortBy.toLowerCase()]: sortOrder === 'desc' ? 'desc' : 'asc',
+                [sortBy]: sortOrder === 'desc' ? 'desc' : 'asc',
             }
         });
 

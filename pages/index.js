@@ -68,21 +68,20 @@ export default function Home() {
               onChange={debouncedResults} />
           </div>
           <div className='d-flex flex-column ms-4'>
-            <label><b>Filter</b></label>
+            <label><b>Sort By</b></label>
             <select className='form-control' onChange={(e) => setSortBy(e.target.value)}>
-              <option value=''>Choose Stat</option>
-              <option value='Attack'>Attack</option>
-              <option value='Defense'>Defense</option>
-              <option value='HP'>HP</option>
-              <option value='Speed'>Speed</option>
-              <option value='Special Attack'>Special Attack</option>
-              <option value='Special Defense'>Special Defense</option>
-              <option value='Defense'>Defense</option>
+              <option value='pokemonId'>Pokemon Id</option>
+              <option value='attack'>Attack</option>
+              <option value='defense'>Defense</option>
+              <option value='hp'>HP</option>
+              <option value='spped'>Speed</option>
+              <option value='specialAttack'>Special Attack</option>
+              <option value='specialDefense'>Special Defense</option>
             </select>
           </div>
         </div>
         <div className='d-flex flex-column ms-auto'>
-          <label><b>Sort By</b></label>
+          <label><b>Order By</b></label>
           <select className='form-control' onChange={(e) => sortStat(e.target.value)}>
             <option value='asc'>Ascending</option>
             <option value='desc'>Descending</option>
